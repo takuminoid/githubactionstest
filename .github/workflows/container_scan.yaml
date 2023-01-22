@@ -19,7 +19,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: my-container
-          format: 'table'
+          format: 'json'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
@@ -29,7 +29,7 @@ jobs:
         uses: goodwithtech/dockle-action@main
         with:
           image: my-container
-          format: 'list'
+          format: 'json'
           exit-code: '1'
           exit-level: 'warn'
           ignore: 'CIS-DI-0001,DKL-DI-0006'
