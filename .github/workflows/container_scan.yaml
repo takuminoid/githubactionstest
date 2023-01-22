@@ -36,6 +36,7 @@ jobs:
           exit-level: 'warn'
           ignore: 'CIS-DI-0001,DKL-DI-0006'
       - uses: actions/upload-artifact@v3
+        # artifactに出力ファイルを保存
         with:
           name: result_container_scans
           path: |
