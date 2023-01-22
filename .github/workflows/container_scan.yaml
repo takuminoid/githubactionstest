@@ -20,6 +20,7 @@ jobs:
         with:
           image-ref: my-container
           format: 'json'
+          output: 'result_trivy.json'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
@@ -30,6 +31,13 @@ jobs:
         with:
           image: my-container
           format: 'json'
+          output: 'result_dockle.json'
           exit-code: '1'
           exit-level: 'warn'
           ignore: 'CIS-DI-0001,DKL-DI-0006'
+      - uses: actions/upload-artifact@v3
+        with:
+          name: result_container_scans
+          path: |
+            result_trivy.json
+            result_dockle.json
